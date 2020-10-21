@@ -26,6 +26,10 @@ router.route('/profile')
   /** GET /api/users/profile - Get profile of logged in user */
   .get(userCtrl.getProfile);
 
+router.route('/')
+  /** GET /api/users/profile - Get profile of logged in user */
+  .post(userCtrl.create);
+
 router.route('/:userId')
   /** GET /api/users/:userId - Get user */
   .get(userCtrl.get)

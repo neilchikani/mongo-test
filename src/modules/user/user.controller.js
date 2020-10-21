@@ -48,6 +48,13 @@ function update(req, res, next) {
     .catch((e) => next(e));
 }
 
+function create(req, res, next) {
+  const user = new User(req.body);
+  user.save()
+    .then((savedUser) => res.json(savedUser.safeModel()))
+    .catch((e) => next(e));
+}
+
 /**
  * Get user list.
  * @property {number} req.query.skip - Number of users to be skipped.
@@ -79,4 +86,5 @@ module.exports = {
   update,
   list,
   remove,
+  create,
 };
